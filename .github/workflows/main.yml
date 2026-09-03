@@ -54,36 +54,24 @@ jobs:
       # EPG API URL is already present inside test.py
       #
       # test.py will generate:
-      #
-      # channels/
-      #   123.json
-      #   124.json
-      #   125.json
-      #   ...
+      #   epg.xml
+      #   epg.xml.gz
       #
       # ------------------------------------------------------
 
-      - name: Generate channel EPG
+      - name: Generate EPG
         run: |
           python test.py
 
 
       # ------------------------------------------------------
-      # Check generated channels
+      # Check generated EPG files
       # ------------------------------------------------------
 
-      - name: Show generated files
+      - name: Show generated EPG files
         run: |
-          echo "Generated channel files:"
-          find channels -type f -name "*.json" | sort
-
-          echo ""
-          echo "Total channel files:"
-          find channels -type f -name "*.json" | wc -l
-
-          echo ""
-          echo "EPG XML and GZ files:"
-          ls -lh epg.xml epg.xml.gz || true
+          echo "Generated EPG files:"
+          ls -lh epg.xml epg.xml.gz
 
 
       # ------------------------------------------------------
@@ -97,10 +85,10 @@ jobs:
 
 
       # ------------------------------------------------------
-      # Add generated channels
+      # Add generated EPG files
       # ------------------------------------------------------
 
-      - name: Add channel files
+      - name: Add EPG files
         run: |
           git add epg.xml epg.xml.gz
 

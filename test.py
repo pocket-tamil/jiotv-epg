@@ -17,8 +17,6 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 CHANNELS_FILE = "channels.json"
 
-OUTPUT_FOLDER = "channels"
-
 EPG_XML_FILE = "epg.xml"
 
 EPG_XML_GZ_FILE = "epg.xml.gz"
@@ -1820,20 +1818,7 @@ def process_channel(
 
 
     # ========================================================
-    # CREATE OUTPUT DIRECTORY
-    # ========================================================
-
-    os.makedirs(
-
-        OUTPUT_FOLDER,
-
-        exist_ok=True
-
-    )
-
-
-    # ========================================================
-    # FINAL CHANNEL JSON
+    # FINAL CHANNEL DATA
     # ========================================================
 
     channel_output = {
@@ -1855,60 +1840,6 @@ def process_channel(
         "programs": all_programs
 
     }
-
-
-    # ========================================================
-    # SAVE CHANNEL FILE
-    # ========================================================
-
-    output_file = os.path.join(
-
-        OUTPUT_FOLDER,
-
-        f"{channel_id}.json"
-
-    )
-
-
-    try:
-
-        with open(
-
-            output_file,
-
-            "w",
-
-            encoding="utf-8"
-
-        ) as file:
-
-            json.dump(
-
-                channel_output,
-
-                file,
-
-                indent=2,
-
-                ensure_ascii=False
-
-            )
-
-
-    except Exception as e:
-
-        return (
-
-            False,
-
-            channel_id,
-
-            str(e),
-
-            None
-
-        )
-
 
     return (
 
@@ -2098,13 +2029,12 @@ def process_batch(
 
 
 # ============================================================
-# LOAD ALL CHANNEL DATA (MEMORY + DISK)
+# LOAD ALL CHANNEL DATA
 # ============================================================
 
 def load_all_channel_data(channels_meta, in_memory_channels=None):
     """
     Consolidates channel EPG data preserving channels.json order.
-    Uses in-memory data first, falls back to OUTPUT_FOLDER/{id}.json if present.
     """
     channels_dict = {}
 
@@ -2114,48 +2044,23 @@ def load_all_channel_data(channels_meta, in_memory_channels=None):
             channels_dict[cid] = ch
 
     final_channels = []
-    seen_ids = set()
 
     for ch_meta in channels_meta:
         cid = str(ch_meta.get("channel_id"))
-        seen_ids.add(cid)
 
         if cid in channels_dict:
             final_channels.append(channels_dict[cid])
         else:
-            json_file = os.path.join(OUTPUT_FOLDER, f"{cid}.json")
-            if os.path.exists(json_file):
-                try:
-                    with open(json_file, "r", encoding="utf-8") as f:
-                        data = json.load(f)
-                        final_channels.append(data)
-                except Exception as e:
-                    print(f"Warning: could not read {json_file}: {e}")
-            else:
-                final_channels.append({
-                    "channel_id": ch_meta.get("channel_id"),
-                    "channel_name": ch_meta.get("channel_name"),
-                    "language_id": ch_meta.get("language_id"),
-                    "language": ch_meta.get("language"),
-                    "category_id": ch_meta.get("category_id"),
-                    "category": ch_meta.get("category"),
-                    "logoUrl": ch_meta.get("logoUrl"),
-                    "programs": []
-                })
-
-    if os.path.exists(OUTPUT_FOLDER):
-        for fname in os.listdir(OUTPUT_FOLDER):
-            if fname.endswith(".json"):
-                cid = fname[:-5]
-                if cid not in seen_ids:
-                    json_file = os.path.join(OUTPUT_FOLDER, fname)
-                    try:
-                        with open(json_file, "r", encoding="utf-8") as f:
-                            data = json.load(f)
-                            final_channels.append(data)
-                            seen_ids.add(cid)
-                    except Exception:
-                        pass
+            final_channels.append({
+                "channel_id": ch_meta.get("channel_id"),
+                "channel_name": ch_meta.get("channel_name"),
+                "language_id": ch_meta.get("language_id"),
+                "language": ch_meta.get("language"),
+                "category_id": ch_meta.get("category_id"),
+                "category": ch_meta.get("category"),
+                "logoUrl": ch_meta.get("logoUrl"),
+                "programs": []
+            })
 
     return final_channels
 
@@ -2333,20 +2238,6 @@ def main():
 
     # ========================================================
     # STEP 3
-    # CREATE OUTPUT FOLDER
-    # ========================================================
-
-    os.makedirs(
-
-        OUTPUT_FOLDER,
-
-        exist_ok=True
-
-    )
-
-
-    # ========================================================
-    # STEP 4
     # SPLIT INTO BATCHES
     # ========================================================
 
@@ -2382,7 +2273,7 @@ def main():
 
 
     # ========================================================
-    # STEP 5
+    # STEP 4
     # PROCESS BATCHES
     # ========================================================
 
@@ -2410,7 +2301,7 @@ def main():
 
 
     # ========================================================
-    # STEP 6
+    # STEP 5
     # GENERATE XMLTV EPG (epg.xml & epg.xml.gz)
     # ========================================================
 
@@ -2442,11 +2333,6 @@ def main():
     print(
         f"Proxy used: "
         f"{WORKING_PROXY}"
-    )
-
-    print(
-        f"Output folder: "
-        f"{OUTPUT_FOLDER}/"
     )
 
     print(
