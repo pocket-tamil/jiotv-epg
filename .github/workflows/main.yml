@@ -1,0 +1,120 @@
+name: Update JioTV EPG
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    # Runs every 3 hours
+    - cron: "0 */3 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-channels:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # ------------------------------------------------------
+      # Checkout repository
+      # ------------------------------------------------------
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+
+      # ------------------------------------------------------
+      # Setup Python
+      # ------------------------------------------------------
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+
+      # ------------------------------------------------------
+      # Install dependencies
+      # ------------------------------------------------------
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+
+      # ------------------------------------------------------
+      # Run test.py
+      # ------------------------------------------------------
+      #
+      # EPG API URL is already present inside test.py
+      #
+      # test.py will generate:
+      #
+      # channels/
+      #   123.json
+      #   124.json
+      #   125.json
+      #   ...
+      #
+      # ------------------------------------------------------
+
+      - name: Generate channel EPG
+        run: |
+          python test.py
+
+
+      # ------------------------------------------------------
+      # Check generated channels
+      # ------------------------------------------------------
+
+      - name: Show generated files
+        run: |
+          echo "Generated channel files:"
+          find channels -type f -name "*.json" | sort
+
+          echo ""
+          echo "Total channel files:"
+          find channels -type f -name "*.json" | wc -l
+
+          echo ""
+          echo "EPG XML and GZ files:"
+          ls -lh epg.xml epg.xml.gz || true
+
+
+      # ------------------------------------------------------
+      # Configure Git
+      # ------------------------------------------------------
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+
+      # ------------------------------------------------------
+      # Add generated channels
+      # ------------------------------------------------------
+
+      - name: Add channel files
+        run: |
+          git add epg.xml epg.xml.gz
+
+
+      # ------------------------------------------------------
+      # Commit and push
+      # ------------------------------------------------------
+
+      - name: Commit and push changes
+        run: |
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update EPG"
+            git push
+          fi
