@@ -783,6 +783,69 @@
     "logoUrl": "https://jiotvimages.cdn.jio.com/dare_images/images/AL_Jazeera.png"
   },
   {
+    "channel_id": "1356",
+    "channel_name": "Zee Tamil HD",
+    "language_id": 8,
+    "language": "Tamil",
+    "category_id": 5,
+    "category": "Entertainment",
+    "logoUrl": "https://jiotv.catchup.cdn.jio.com/dare_images/images/ZeeTamilHD.png"
+  },
+  {
+    "channel_id": "628",
+    "channel_name": "Zee Tamil",
+    "language_id": 8,
+    "language": "Tamil",
+    "category_id": 5,
+    "category": "Entertainment",
+    "logoUrl": "https://jiotv.catchup.cdn.jio.com/dare_images/images/ZeeTamil.png"
+  },
+  {
+    "channel_id": "3051",
+    "channel_name": "Zee Thirai HD",
+    "language_id": 8,
+    "language": "Tamil",
+    "category_id": 5,
+    "category": "Entertainment",
+    "logoUrl": "https://jiotv.catchup.cdn.jio.com/dare_images/images/ZeeThiraiHD.png"
+  },
+  {
+    "channel_id": "3051",
+    "channel_name": "Zee Thirai HD",
+    "language_id": 8,
+    "language": "Tamil",
+    "category_id": 5,
+    "category": "Entertainment",
+    "logoUrl": "https://jiotv.catchup.cdn.jio.com/dare_images/images/ZeeThiraiHD.png"
+  },
+  {
+    "channel_id": "1257",
+    "channel_name": "Zee Telugu HD",
+    "language_id": 8,
+    "language": "Telugu",
+    "category_id": 5,
+    "category": "Entertainment",
+    "logoUrl": "https://jiotv.catchup.cdn.jio.com/dare_images/images/ZeeTeluguHD.png"
+  },
+  {
+    "channel_id": "1358",
+    "channel_name": "Zee Talkies HD",
+    "language_id": 8,
+    "language": "Marathi",
+    "category_id": 5,
+    "category": "Entertainment",
+    "logoUrl": "https://jiotv.catchup.cdn.jio.com/dare_images/images/ZeeTalkiesHD.png"
+  },
+  {
+    "channel_id": "2757",
+    "channel_name": "Zee Zest HD",
+    "language_id": 8,
+    "language": "English",
+    "category_id": 5,
+    "category": "Lifestyle",
+    "logoUrl": "https://jiotv.catchup.cdn.jio.com/dare_images/images/ZeeZestHD.png"
+  },
+  {
     "channel_id": 495,
     "channel_name": "News X",
     "language_id": 6,
