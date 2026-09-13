@@ -258,78 +258,6 @@
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Times_NOW.png"
   },
   {
-    "channel_name": "PM e Vidya 01",
-    "channel_id": "400",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/evidya_1.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 19",
-    "channel_id": "401",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_19.png"
-  },
-  {
-    "channel_name": "PM e Vidya 02",
-    "channel_id": "402",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/evidya_2.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 20",
-    "channel_id": "403",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_20.png"
-  },
-  {
-    "channel_name": "PM e Vidya 07",
-    "channel_id": "404",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/evidya_7.png"
-  },
-  {
-    "channel_name": "PM e Vidya 03",
-    "channel_id": "405",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/evidya_3.png"
-  },
-  {
-    "channel_name": "PM e Vidya 04",
-    "channel_id": "406",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/evidya_4.png"
-  },
-  {
-    "channel_name": "PM e Vidya 05",
-    "channel_id": "407",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/evidya_5.png"
-  },
-  {
-    "channel_name": "PM e Vidya 06",
-    "channel_id": "408",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/evidya_6.png"
-  },
-  {
-    "channel_name": "PM e Vidya 08",
-    "channel_id": "409",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/_evidya_8.png"
-  },
-  {
-    "channel_name": "PM e Vidya 09",
-    "channel_id": "410",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/evidya_9.png"
-  },
-  {
-    "channel_name": "PM e Vidya 10",
-    "channel_id": "411",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/evidya_10.png"
-  },
-  {
     "channel_name": "Wion",
     "channel_id": "412",
     "category": "English",
@@ -2508,156 +2436,6 @@
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/TEST1_HD.png"
   },
   {
-    "channel_name": "TEST2 HD",
-    "channel_id": "979",
-    "category": "Entertainment",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/TEST2_HD.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 01",
-    "channel_id": "980",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_01.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 02",
-    "channel_id": "981",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_02.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 03",
-    "channel_id": "982",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_03.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 08",
-    "channel_id": "983",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_08.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 04",
-    "channel_id": "984",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_04.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 07",
-    "channel_id": "985",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_07.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 05",
-    "channel_id": "986",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_05.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 06",
-    "channel_id": "987",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_06.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 09",
-    "channel_id": "988",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_09.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 10",
-    "channel_id": "989",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_10.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 11",
-    "channel_id": "990",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_11.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 12",
-    "channel_id": "991",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_12.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 13",
-    "channel_id": "992",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_13.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 14",
-    "channel_id": "993",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_14.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 16",
-    "channel_id": "994",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_16.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 15",
-    "channel_id": "995",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_15.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 17",
-    "channel_id": "996",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_17.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 21",
-    "channel_id": "997",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_21.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 22",
-    "channel_id": "998",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_22.png"
-  },
-  {
-    "channel_name": "Swayam Prabha 18",
-    "channel_id": "999",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Swayam_Prabha_18.png"
-  },
-  {
-    "channel_name": "TEST3 HD",
-    "channel_id": "1059",
-    "category": "News",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Test03_HD.png"
-  },
-  {
-    "channel_name": "Vande Gujarat 1",
-    "channel_id": "1069",
-    "category": "Gujarati",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Vande_Gujarat_1.png"
-  },
-  {
-    "channel_name": "Vande Gujarat 2",
-    "channel_id": "1070",
-    "category": "Gujarati",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Vande_Gujarat_2.png"
-  },
-  {
-    "channel_name": "Vande Gujarat 4",
-    "channel_id": "1071",
-    "category": "Gujarati",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Vande_Gujarat_4.png"
-  },
-  {
     "channel_name": "Ayush TV",
     "channel_id": "1075",
     "category": "Kannada",
@@ -2692,84 +2470,6 @@
     "channel_id": "1081",
     "category": "Tamil",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/CNHDTamil.png"
-  },
-  {
-    "channel_name": "Vande Gujarat 3",
-    "channel_id": "1082",
-    "category": "Gujarati",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Vande_Gujarat_3.png"
-  },
-  {
-    "channel_name": "Vande Gujarat 5",
-    "channel_id": "1083",
-    "category": "Gujarati",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Vande_Gujarat_5.png"
-  },
-  {
-    "channel_name": "Vande Gujarat 6",
-    "channel_id": "1084",
-    "category": "Gujarati",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Vande_Gujarat_6.png"
-  },
-  {
-    "channel_name": "Vande Gujarat 7",
-    "channel_id": "1085",
-    "category": "Gujarati",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Vande_Gujarat_7.png"
-  },
-  {
-    "channel_name": "Vande Gujarat 8",
-    "channel_id": "1086",
-    "category": "Gujarati",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Vande_Gujarat_8.png"
-  },
-  {
-    "channel_name": "Vande Gujarat 9",
-    "channel_id": "1087",
-    "category": "Gujarati",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Vande_Gujarat_9.png"
-  },
-  {
-    "channel_name": "Vande Gujarat 10",
-    "channel_id": "1088",
-    "category": "Gujarati",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Vande_Gujarat_10.png"
-  },
-  {
-    "channel_name": "Vande Gujarat 11",
-    "channel_id": "1089",
-    "category": "Gujarati",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Vande_Gujarat_11.png"
-  },
-  {
-    "channel_name": "Vande Gujarat 12",
-    "channel_id": "1090",
-    "category": "Gujarati",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Vande_Gujarat_12.png"
-  },
-  {
-    "channel_name": "Vande Gujarat 13",
-    "channel_id": "1091",
-    "category": "Gujarati",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Vande_Gujarat_13.png"
-  },
-  {
-    "channel_name": "Vande Gujarat 14",
-    "channel_id": "1092",
-    "category": "Gujarati",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Vande_Gujarat_14.png"
-  },
-  {
-    "channel_name": "Vande Gujarat 15",
-    "channel_id": "1093",
-    "category": "Gujarati",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Vande_Gujarat_15.png"
-  },
-  {
-    "channel_name": "Vande Gujarat 16",
-    "channel_id": "1094",
-    "category": "Gujarati",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Vande_Gujarat_16.png"
   },
   {
     "channel_name": "Star Movies HD",
@@ -3450,12 +3150,6 @@
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Reporter_TV.png"
   },
   {
-    "channel_name": "PM e Vidya 11",
-    "channel_id": "1410",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/evidya_11.png"
-  },
-  {
     "channel_name": "SongDew TV",
     "channel_id": "1411",
     "category": "Music",
@@ -3570,120 +3264,6 @@
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Argus_TV.png"
   },
   {
-    "channel_name": "CNBC TV18.",
-    "channel_id": "1495",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/CNBC_TV18_NW18.png"
-  },
-  {
-    "channel_name": "CNBC Awaaz.",
-    "channel_id": "1496",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/CNBC_Awaaz_NW18.png"
-  },
-  {
-    "channel_name": "CNBC Bazaar.",
-    "channel_id": "1497",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/CNBC_Bajar_NW18.png"
-  },
-  {
-    "channel_name": "CNN News18.",
-    "channel_id": "1498",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/CNN_News18_NW18.png"
-  },
-  {
-    "channel_name": "News18 India.",
-    "channel_id": "1499",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/News18_India_NW18.png"
-  },
-  {
-    "channel_name": "News18 Urdu.",
-    "channel_id": "1500",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/News18_Urdu_NW18.png"
-  },
-  {
-    "channel_name": "News18 Punjab Haryana HP.",
-    "channel_id": "1501",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/News18_Punjab_Haryana_HP_NW18.png"
-  },
-  {
-    "channel_name": "News18 MP Chhattisgarh.",
-    "channel_id": "1502",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/News18_MP_Chhattisgarh_NW18.png"
-  },
-  {
-    "channel_name": "News18 UP Uttarakhand.",
-    "channel_id": "1503",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/News18_UP_Uttarakhand_NW18.png"
-  },
-  {
-    "channel_name": "News18 Bihar Jharkhand.",
-    "channel_id": "1504",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/News18_Bihar_Jharkhand_NW18.png"
-  },
-  {
-    "channel_name": "News18 Rajasthan.",
-    "channel_id": "1505",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/News18_Rajasthan_NW18.png"
-  },
-  {
-    "channel_name": "News18 Lokmat.",
-    "channel_id": "1506",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/News18_Lokmat_NW18.png"
-  },
-  {
-    "channel_name": "News18 Bangla.",
-    "channel_id": "1507",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/News18_Bangla_NW18.png"
-  },
-  {
-    "channel_name": "News18 Gujarati.",
-    "channel_id": "1508",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/News18_Gujarati_NW18.png"
-  },
-  {
-    "channel_name": "News18 Kannada.",
-    "channel_id": "1509",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/News18_Kannada_NW18.png"
-  },
-  {
-    "channel_name": "News18 Odia.",
-    "channel_id": "1510",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/News18_Odia_NW18.png"
-  },
-  {
-    "channel_name": "News18 Tamil Nadu.",
-    "channel_id": "1511",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/News18_Tamil_Nadu_NW18.png"
-  },
-  {
-    "channel_name": "News18 Kerala.",
-    "channel_id": "1512",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/News18_Kerala_NW18.png"
-  },
-  {
-    "channel_name": "News18 Assam North East.",
-    "channel_id": "1513",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/News18_Assam_North_East_NW18.png"
-  },
-  {
     "channel_name": "News J",
     "channel_id": "1515",
     "category": "Tamil",
@@ -3730,12 +3310,6 @@
     "channel_id": "1531",
     "category": "Educational",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Gyanvani_1.png"
-  },
-  {
-    "channel_name": "PM e Vidya 12",
-    "channel_id": "1532",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/evidya_12.png"
   },
   {
     "channel_name": "RadheKrishna TV",
@@ -4644,18 +4218,6 @@
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/22Scope_News.png"
   },
   {
-    "channel_name": "History HD NW18",
-    "channel_id": "2124",
-    "category": "Unknown",
-    "logo": ""
-  },
-  {
-    "channel_name": "CNBC Tv18 Prime HD NW18",
-    "channel_id": "2125",
-    "category": "Unknown",
-    "logo": ""
-  },
-  {
     "channel_name": "India 24x7",
     "channel_id": "2176",
     "category": "News",
@@ -5010,12 +4572,6 @@
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/KCM.png"
   },
   {
-    "channel_name": "History TV18 Hindi NW18",
-    "channel_id": "2857",
-    "category": "Unknown",
-    "logo": ""
-  },
-  {
     "channel_name": "Mahaa News",
     "channel_id": "2862",
     "category": "Telugu",
@@ -5044,12 +4600,6 @@
     "channel_id": "2918",
     "category": "Punjabi",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/WPN_World_Punjabi_News.png"
-  },
-  {
-    "channel_name": "Firstpost NW18",
-    "channel_id": "2919",
-    "category": "Unknown",
-    "logo": ""
   },
   {
     "channel_name": "99 TV",
@@ -5240,31 +4790,31 @@
   {
     "channel_name": "Pogo Kannada",
     "channel_id": "3032",
-    "category": "Unknown",
+    "category": "Kids",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Pogo_Kan.png"
   },
   {
     "channel_name": "Pogo Malayalam",
     "channel_id": "3033",
-    "category": "Unknown",
+    "category": "Kids",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Pogo_Mal.png"
   },
   {
     "channel_name": "Pogo Marathi",
     "channel_id": "3034",
-    "category": "Unknown",
+    "category": "Kids",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Pogo_Mar.png"
   },
   {
     "channel_name": "Cartoon Network Kannada",
     "channel_id": "3035",
-    "category": "Unknown",
+    "category": "Kids",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/CNKannada.png"
   },
   {
     "channel_name": "Cartoon Network Malayalam",
     "channel_id": "3036",
-    "category": "Unknown",
+    "category": "Kids",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/CNMalayalam.png"
   },
   {
@@ -5444,7 +4994,7 @@
   {
     "channel_name": "KBC News",
     "channel_id": "3090",
-    "category": "Unknown",
+    "category": "News",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/kbcnews.png"
   },
   {
@@ -5492,19 +5042,13 @@
   {
     "channel_name": "National Tv India",
     "channel_id": "3105",
-    "category": "Unknown",
+    "category": "News",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/National_Tv_India.png"
-  },
-  {
-    "channel_name": "News18 JKLH NW18",
-    "channel_id": "3106",
-    "category": "Unknown",
-    "logo": ""
   },
   {
     "channel_name": "Bhakthi Siri",
     "channel_id": "3107",
-    "category": "Unknown",
+    "category": "Devotional",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/bhakhtisiri.png"
   },
   {
@@ -5540,170 +5084,8 @@
   {
     "channel_name": "Rajya 24 News",
     "channel_id": "3117",
-    "category": "Unknown",
+    "category": "News",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Rajya_24_News.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 23",
-    "channel_id": "3118",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_23.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 24",
-    "channel_id": "3119",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_24.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 25",
-    "channel_id": "3120",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_25.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 26",
-    "channel_id": "3121",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_26.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 27",
-    "channel_id": "3122",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_27.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 28",
-    "channel_id": "3123",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_28.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 29",
-    "channel_id": "3124",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_29.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 30",
-    "channel_id": "3125",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_30.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 31",
-    "channel_id": "3126",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_31.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 32",
-    "channel_id": "3127",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_32.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 33",
-    "channel_id": "3128",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_33.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 34",
-    "channel_id": "3129",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_34.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 35",
-    "channel_id": "3130",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_35.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 36",
-    "channel_id": "3131",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_36.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 37",
-    "channel_id": "3132",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_37.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 38",
-    "channel_id": "3133",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_38.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 39",
-    "channel_id": "3134",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_39.png"
-  },
-  {
-    "channel_name": "DD Swayam Prabha 40",
-    "channel_id": "3135",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_40.png"
-  },
-  {
-    "channel_name": "DD Sathee 1",
-    "channel_id": "3136",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SATHEE_1.png"
-  },
-  {
-    "channel_name": "DD Sathee 2",
-    "channel_id": "3137",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SATHEE_2.png"
-  },
-  {
-    "channel_name": "DD Sathee 3",
-    "channel_id": "3138",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SATHEE_3.png"
-  },
-  {
-    "channel_name": "DD Sathee 4",
-    "channel_id": "3139",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SATHEE_4.png"
-  },
-  {
-    "channel_name": "DD Sathee 5",
-    "channel_id": "3140",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SATHEE_5.png"
-  },
-  {
-    "channel_name": "DD Sathee 6",
-    "channel_id": "3141",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SATHEE_6.png"
-  },
-  {
-    "channel_name": "DD Sathee 7",
-    "channel_id": "3142",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SATHEE_7.png"
-  },
-  {
-    "channel_name": "Mahaa Max",
-    "channel_id": "3143",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Mahaa_Max.png"
-  },
-  {
-    "channel_name": "DD Sathee 8",
-    "channel_id": "3145",
-    "category": "English",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_SATHEE_8.png"
   },
   {
     "channel_name": "All Women's Sports Network",
@@ -5810,7 +5192,7 @@
   {
     "channel_name": "News Marathi 24x7",
     "channel_id": "3179",
-    "category": "Unknown",
+    "category": "News",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/newsmarathi.png"
   },
   {
@@ -5822,13 +5204,13 @@
   {
     "channel_name": "Animal Planet HD Telugu",
     "channel_id": "3182",
-    "category": "Unknown",
+    "category": "Telugu",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/AnimalPlanetHDTel.png"
   },
   {
     "channel_name": "Animal Planet Telugu",
     "channel_id": "3183",
-    "category": "Unknown",
+    "category": "Telugu",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/AnimalPlanetTel.png"
   },
   {
@@ -5840,7 +5222,7 @@
   {
     "channel_name": "Kolkata News",
     "channel_id": "3185",
-    "category": "Unknown",
+    "category": "News",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Kolkata_News.png"
   },
   {
@@ -5894,7 +5276,7 @@
   {
     "channel_name": "Sana TV",
     "channel_id": "3201",
-    "category": "Unknown",
+    "category": "Tamil",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/sanatv.png"
   },
   {
@@ -5954,7 +5336,7 @@
   {
     "channel_name": "Shark Tank India S5",
     "channel_id": "3223",
-    "category": "Unknown",
+    "category": "Hindi",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/SharkTankIndia.png"
   },
   {
@@ -5980,12 +5362,6 @@
     "channel_id": "3232",
     "category": "English",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Sadhguru_Television_HD_Dolby.png"
-  },
-  {
-    "channel_name": "News18 International NW18",
-    "channel_id": "3233",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/News18_International_NW18.png"
   },
   {
     "channel_name": "Chanakya News Jharkhand",
@@ -6952,12 +6328,6 @@
     "channel_id": "3493",
     "category": "Unknown",
     "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/ShreeSanatan_TV.png"
-  },
-  {
-    "channel_name": "Kadak NW18",
-    "channel_id": "3494",
-    "category": "Unknown",
-    "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Kadak_NW18.png"
   },
   {
     "channel_name": "Village TV",
