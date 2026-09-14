@@ -2085,8 +2085,7 @@ def generate_xmltv(channels_data, xml_file=EPG_XML_FILE, gz_file=EPG_XML_GZ_FILE
                 logo = safe_xml(ch.get("logo_url") or ch.get("logoUrl"))
 
                 file.write(f'  <channel id="{ch_id}">\n')
-                file.write(f'    <display-name>{ch_name}</display-name>\n')
-                file.write(f'    <display-name>{ch_id}</display-name>\n')
+                file.write(f'    <display-name lang="en">{ch_name}</display-name>\n')
                 if logo:
                     file.write(f'    <icon src="{logo}" />\n')
                 file.write('  </channel>\n')
