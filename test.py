@@ -713,6 +713,37 @@ def test_proxy(
 
 
 # ============================================================
+# CHECK DIRECT CONNECTION
+# ============================================================
+
+def check_direct_connection():
+    global WORKING_PROXY
+
+    test_url = EPG_API_URL.format(
+        channel_id=PROXY_TEST_CHANNEL,
+        offset=PROXY_TEST_OFFSET
+    )
+
+    try:
+        response = requests.get(
+            test_url,
+            headers=HEADERS,
+            timeout=PROXY_TEST_TIMEOUT
+        )
+
+        if response.status_code == 200:
+            data = response.json()
+            if extract_epg(data):
+                WORKING_PROXY = None
+                return True
+
+    except Exception:
+        pass
+
+    return False
+
+
+# ============================================================
 # FIND WORKING PROXY
 # ============================================================
 
@@ -1563,42 +1594,18 @@ def process_channel(
         "channel_id"
     )
 
-
     channel_name = channel.get(
         "channel_name"
     )
 
-
-    logo_url = channel.get(
-        "logoUrl"
-    )
-
-
-    # --------------------------------------------------------
-    # Language
-    # --------------------------------------------------------
-
-    language_id = channel.get(
-        "language_id"
-    )
-
-
-    language = channel.get(
-        "language"
-    )
-
-
-    # --------------------------------------------------------
-    # Category
-    # --------------------------------------------------------
-
-    category_id = channel.get(
-        "category_id"
-    )
-
-
     category = channel.get(
         "category"
+    )
+
+    logo_url = (
+        channel.get("logo_url")
+        or
+        channel.get("logoUrl")
     )
 
 
@@ -1823,15 +1830,9 @@ def process_channel(
 
         "channel_name": channel_name,
 
-        "language_id": language_id,
-
-        "language": language,
-
-        "category_id": category_id,
-
         "category": category,
 
-        "logoUrl": logo_url,
+        "logo_url": logo_url,
 
         "programs": all_programs
 
@@ -2050,11 +2051,8 @@ def load_all_channel_data(channels_meta, in_memory_channels=None):
             final_channels.append({
                 "channel_id": ch_meta.get("channel_id"),
                 "channel_name": ch_meta.get("channel_name"),
-                "language_id": ch_meta.get("language_id"),
-                "language": ch_meta.get("language"),
-                "category_id": ch_meta.get("category_id"),
                 "category": ch_meta.get("category"),
-                "logoUrl": ch_meta.get("logoUrl"),
+                "logo_url": ch_meta.get("logo_url") or ch_meta.get("logoUrl"),
                 "programs": []
             })
 
@@ -2076,7 +2074,6 @@ def generate_xmltv(channels_data, xml_file=EPG_XML_FILE, gz_file=EPG_XML_GZ_FILE
     try:
         with open(xml_file, "w", encoding="utf-8") as file:
             file.write('<?xml version="1.0" encoding="UTF-8"?>\n')
-            file.write('<!DOCTYPE tv SYSTEM "xmltv.dtd">\n')
             file.write('<tv generator-info-name="jiotv-epg" source-info-name="JioTV">\n')
 
             # ----------------------------------------------------
@@ -2085,10 +2082,11 @@ def generate_xmltv(channels_data, xml_file=EPG_XML_FILE, gz_file=EPG_XML_GZ_FILE
             for ch in channels_data:
                 ch_id = safe_xml(ch.get("channel_id"))
                 ch_name = safe_xml(ch.get("channel_name"))
-                logo = safe_xml(ch.get("logoUrl"))
+                logo = safe_xml(ch.get("logo_url") or ch.get("logoUrl"))
 
                 file.write(f'  <channel id="{ch_id}">\n')
-                file.write(f'    <display-name lang="en">{ch_name}</display-name>\n')
+                file.write(f'    <display-name>{ch_name}</display-name>\n')
+                file.write(f'    <display-name>{ch_id}</display-name>\n')
                 if logo:
                     file.write(f'    <icon src="{logo}" />\n')
                 file.write('  </channel>\n')
@@ -2170,27 +2168,33 @@ def main():
 
     # ========================================================
     # STEP 1
-    # FIND WORKING INDIA PROXY
+    # CHECK DIRECT ACCESS / FIND WORKING INDIA PROXY
     # ========================================================
 
-    working_proxy = (
-        find_working_proxy()
-    )
+    print("Checking direct connection to JioTV API...")
 
-
-    if not working_proxy:
-
-        print()
-        print(
-            "STOPPING."
+    if check_direct_connection():
+        print("Direct connection to JioTV API successful! No proxy needed.")
+        working_proxy = "Direct (No Proxy)"
+    else:
+        print("Direct connection not available. Searching for working India proxy...")
+        working_proxy = (
+            find_working_proxy()
         )
 
-        print(
-            "No working India proxy "
-            "could access JioTV EPG."
-        )
+        if not working_proxy:
 
-        return
+            print()
+            print(
+                "STOPPING."
+            )
+
+            print(
+                "No working India proxy "
+                "could access JioTV EPG."
+            )
+
+            return
 
 
     # ========================================================
