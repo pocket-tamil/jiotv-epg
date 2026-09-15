@@ -5850,22 +5850,64 @@
     "logo_url": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Ashwaveega_News_24x7.png"
   },
   {
-    "channel_name": "Sony LIV Sports 1",
-    "channel_id": "3372",
+    "channel_name": "Sony Ten 1 HD",
+    "channel_id": "162",
     "category": "Sports",
-    "logo_url": "https://jiotv.catchup.cdn.jio.com/dare_images/images/SonyLIV_Sports_1.png"
+    "logo_url": "https://jiotvimages.cdn.jio.com/dare_images/images/Ten_HD.png",
   },
   {
-    "channel_name": "Sony LIV Sports 2",
-    "channel_id": "3373",
+    "channel_name": "Sony Ten 1",
+    "channel_id": "514",
     "category": "Sports",
-    "logo_url": "https://jiotv.catchup.cdn.jio.com/dare_images/images/SonyLIV_Sports_2.png"
+    "logo_url": "https://jiotvimages.cdn.jio.com/dare_images/images/Ten_1.png",
   },
   {
-    "channel_name": "Sony LIV Sports 3",
-    "channel_id": "3374",
+    "channel_name": "Sony Ten 2 HD",
+    "channel_id": "891",
     "category": "Sports",
-    "logo_url": "https://jiotv.catchup.cdn.jio.com/dare_images/images/SonyLIV_Sports_3.png"
+    "logo_url": "https://jiotvimages.cdn.jio.com/dare_images/images/Ten2_HD.png",
+  },
+  {
+    "channel_name": "Sony Ten 2",
+    "channel_id": "523",
+    "category": "Sports",
+    "logo_url": "https://jiotvimages.cdn.jio.com/dare_images/images/Ten_2.png",
+  },
+  {
+    "channel_name": "Sony Ten 3 HD",
+    "channel_id": "892",
+    "category": "Sports",
+    "logo_url": "https://jiotvimages.cdn.jio.com/dare_images/images/Ten3_HD.png",
+  },
+  {
+    "channel_name": "Sony Ten 3",
+    "channel_id": "524",
+    "category": "Sports",
+    "logo_url": "https://jiotvimages.cdn.jio.com/dare_images/images/Ten_3.png",
+  },
+  {
+    "channel_name": "Sony Ten 4 Tamil",
+    "channel_id": "1774",
+    "category": "Sports",
+    "logo_url": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Ten_4_Tamil.png",
+  },
+  {
+    "channel_name": "Sony Ten 4 Telugu",
+    "channel_id": "1775",
+    "category": "Sports",
+    "logo_url": "https://jiotvimages.cdn.jio.com/dare_images/images/Ten_4_Telugu.png",
+  },
+  {
+    "channel_name": "Sony Ten 5 HD",
+    "channel_id": "155",
+    "category": "Sports",
+    "logo_url": "https://jiotvimages.cdn.jio.com/dare_images/images/Six_HD.png",
+  },
+  {
+    "channel_name": "Sony Ten 5",
+    "channel_id": "525",
+    "category": "Sports",
+    "logo_url": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Six_SD.png",
   },
   {
     "channel_name": "G18 News",
