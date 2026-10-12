@@ -9,7 +9,7 @@ import tempfile
 import xml.etree.ElementTree as ET
 from xml.sax.saxutils import escape as xml_escape
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
@@ -30,16 +30,16 @@ SOURCE_EPG_URLS = (
 CUSTOM_XMLTV_ENTRIES = (
     {
         "channel_id": "Music.Dummy",
-        "channel_name": "24/7 Tamil Hits",
-        "programme_channel": "tamil-hits",
+        "channel_name": "Music Dummy",
+        "legacy_programme_channel": "tamil-songs",
         "title": "24/7 Tamil Hits",
-        "description": "Non-stop Tamil hit songs, all day long.",
+        "description": "Non-stop Tamil Songs, all day long.",
         "category": "Music",
     },
     {
         "channel_id": "24.7.Dummy",
         "channel_name": "24/7 Dummy Movies",
-        "programme_channel": "dummy-movies",
+        "legacy_programme_channel": "dummy-movies",
         "title": "24/7 Non-Stop Movie Streaming",
         "description": (
             "Continuous round-the-clock movie broadcast featuring back-to-back "
@@ -50,7 +50,7 @@ CUSTOM_XMLTV_ENTRIES = (
     {
         "channel_id": "Sitcoms.Dummy",
         "channel_name": "24/7 Sitcoms",
-        "programme_channel": "dummy-sitcoms",
+        "legacy_programme_channel": "dummy-sitcoms",
         "title": "24/7 Non-Stop Sitcom Marathons",
         "description": (
             "Endless laughs with back-to-back comedy episodes, hilarious sitcom antics, "
@@ -2233,10 +2233,12 @@ def normalize_xmltv_channel_ids(root):
 
 
 def append_custom_epg_entries(root):
-    """Add the user-supplied always-on channels, replacing previous copies."""
+    """Add rolling one-hour programmes for the user-supplied 24/7 channels."""
     custom_channel_ids = {entry["channel_id"] for entry in CUSTOM_XMLTV_ENTRIES}
     custom_programme_channels = {
-        entry["programme_channel"] for entry in CUSTOM_XMLTV_ENTRIES
+        entry["channel_id"] for entry in CUSTOM_XMLTV_ENTRIES
+    } | {
+        entry["legacy_programme_channel"] for entry in CUSTOM_XMLTV_ENTRIES
     }
 
     for element in list(root):
@@ -2251,20 +2253,31 @@ def append_custom_epg_entries(root):
         ):
             root.remove(element)
 
+    ist = timezone(timedelta(hours=5, minutes=30))
+    guide_start = datetime.now(ist).replace(
+        hour=0,
+        minute=0,
+        second=0,
+        microsecond=0,
+    )
+
     for entry in CUSTOM_XMLTV_ENTRIES:
         channel = ET.SubElement(root, "channel", id=entry["channel_id"])
         ET.SubElement(channel, "display-name").text = entry["channel_name"]
 
-        programme = ET.SubElement(
-            root,
-            "programme",
-            start="20261012000000 +0530",
-            stop="20261013000000 +0530",
-            channel=entry["programme_channel"],
-        )
-        ET.SubElement(programme, "title", lang="en").text = entry["title"]
-        ET.SubElement(programme, "desc", lang="en").text = entry["description"]
-        ET.SubElement(programme, "category", lang="en").text = entry["category"]
+        for hour_offset in range(4 * 24):
+            start = guide_start + timedelta(hours=hour_offset)
+            stop = start + timedelta(hours=1)
+            programme = ET.SubElement(
+                root,
+                "programme",
+                start=start.strftime("%Y%m%d%H%M%S +0530"),
+                stop=stop.strftime("%Y%m%d%H%M%S +0530"),
+                channel=entry["channel_id"],
+            )
+            ET.SubElement(programme, "title", lang="en").text = entry["title"]
+            ET.SubElement(programme, "desc", lang="en").text = entry["description"]
+            ET.SubElement(programme, "category", lang="en").text = entry["category"]
 
 
 def merge_epg_guides(refreshed_xml, channel_ids, gz_file=EPG_XML_GZ_FILE):
