@@ -5,6 +5,8 @@ import time
 import random
 import gzip
 import shutil
+import tempfile
+import xml.etree.ElementTree as ET
 from xml.sax.saxutils import escape as xml_escape
 
 from datetime import datetime, timedelta
@@ -17,7 +19,46 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 CHANNELS_FILE = "channels.json"
 
-EPG_XML_FILE = "epg.xml"
+JIOTVPLUS_FILE = "jiotvplus.json"
+
+SOURCE_EPG_URLS = (
+    "https://jioepg.djdoolky76.com/epg.xml.gz",
+    "https://olidigital.space/olitv-epg.php",
+    "https://whiplash.cc/scheds/schedule.xml",
+)
+
+CUSTOM_XMLTV_ENTRIES = (
+    {
+        "channel_id": "Music.Dummy",
+        "channel_name": "24/7 Tamil Hits",
+        "programme_channel": "tamil-hits",
+        "title": "24/7 Tamil Hits",
+        "description": "Non-stop Tamil hit songs, all day long.",
+        "category": "Music",
+    },
+    {
+        "channel_id": "24.7.Dummy",
+        "channel_name": "24/7 Dummy Movies",
+        "programme_channel": "dummy-movies",
+        "title": "24/7 Non-Stop Movie Streaming",
+        "description": (
+            "Continuous round-the-clock movie broadcast featuring back-to-back "
+            "cinematic blockbusters, action thrillers, and timeless classics all day long."
+        ),
+        "category": "Movie",
+    },
+    {
+        "channel_id": "Sitcoms.Dummy",
+        "channel_name": "24/7 Sitcoms",
+        "programme_channel": "dummy-sitcoms",
+        "title": "24/7 Non-Stop Sitcom Marathons",
+        "description": (
+            "Endless laughs with back-to-back comedy episodes, hilarious sitcom antics, "
+            "and lighthearted fun all day long."
+        ),
+        "category": "Comedy",
+    },
+)
 
 EPG_XML_GZ_FILE = "epg.xml.gz"
 
@@ -30,6 +71,20 @@ def safe_xml(text):
     if text is None:
         return ""
     return xml_escape(str(text), {'"': "&quot;", "'": "&apos;"})
+
+
+def normalize_channel_id(channel_id):
+    """Return an XMLTV channel ID without JioTV's feed prefix."""
+    if channel_id is None:
+        return ""
+
+    channel_id = str(channel_id)
+    prefix = "jiotv."
+
+    if channel_id.lower().startswith(prefix):
+        return channel_id[len(prefix):]
+
+    return channel_id
 
 
 def format_xmltv_datetime(dt_str):
@@ -165,14 +220,14 @@ WORKING_PROXY = None
 # LOAD CHANNELS.JSON
 # ============================================================
 
-def load_channels():
+def load_channels(channel_file=CHANNELS_FILE):
 
     if not os.path.exists(
-        CHANNELS_FILE
+        channel_file
     ):
 
         print(
-            f"ERROR: {CHANNELS_FILE} "
+            f"ERROR: {channel_file} "
             "not found."
         )
 
@@ -182,7 +237,7 @@ def load_channels():
     try:
 
         with open(
-            CHANNELS_FILE,
+            channel_file,
             "r",
             encoding="utf-8"
         ) as file:
@@ -2063,7 +2118,7 @@ def load_all_channel_data(channels_meta, in_memory_channels=None):
 # GENERATE XMLTV GUIDE AND GZIP COMPRESSED XMLTV
 # ============================================================
 
-def generate_xmltv(channels_data, xml_file=EPG_XML_FILE, gz_file=EPG_XML_GZ_FILE):
+def generate_xmltv(channels_data, xml_file, gz_file):
     print()
     print("=" * 70)
     print("GENERATING XMLTV EPG (XML & XML.GZ)")
@@ -2080,7 +2135,7 @@ def generate_xmltv(channels_data, xml_file=EPG_XML_FILE, gz_file=EPG_XML_GZ_FILE
             # 1. Channel entries
             # ----------------------------------------------------
             for ch in channels_data:
-                ch_id = safe_xml(ch.get("channel_id"))
+                ch_id = safe_xml(normalize_channel_id(ch.get("channel_id")))
                 ch_name = safe_xml(ch.get("channel_name"))
                 logo = safe_xml(ch.get("logo_url") or ch.get("logoUrl"))
 
@@ -2094,7 +2149,7 @@ def generate_xmltv(channels_data, xml_file=EPG_XML_FILE, gz_file=EPG_XML_GZ_FILE
             # 2. Programme entries
             # ----------------------------------------------------
             for ch in channels_data:
-                ch_id = safe_xml(ch.get("channel_id"))
+                ch_id = safe_xml(normalize_channel_id(ch.get("channel_id")))
                 programs = ch.get("programs", [])
 
                 for prog in programs:
@@ -2143,6 +2198,145 @@ def generate_xmltv(channels_data, xml_file=EPG_XML_FILE, gz_file=EPG_XML_GZ_FILE
 
     except Exception as e:
         print(f"ERROR generating XMLTV EPG: {e}")
+
+
+def xmltv_tag_name(element):
+    """Return an XML tag name without an optional namespace."""
+    return element.tag.rsplit("}", 1)[-1]
+
+
+def download_source_epg(url):
+    """Download and parse one XMLTV guide, compressed or uncompressed."""
+    print(f"Downloading source EPG: {url}")
+
+    response = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+    response.raise_for_status()
+
+    try:
+        xml_data = gzip.decompress(response.content)
+    except OSError:
+        # Also support servers that transparently return an already-decoded file.
+        xml_data = response.content
+
+    return ET.ElementTree(ET.fromstring(xml_data))
+
+
+def normalize_xmltv_channel_ids(root):
+    """Change XMLTV IDs such as jiotv.832 to 832 in-place."""
+    for element in root:
+        tag = xmltv_tag_name(element)
+
+        if tag == "channel" and "id" in element.attrib:
+            element.set("id", normalize_channel_id(element.get("id")))
+        elif tag == "programme" and "channel" in element.attrib:
+            element.set("channel", normalize_channel_id(element.get("channel")))
+
+
+def append_custom_epg_entries(root):
+    """Add the user-supplied always-on channels, replacing previous copies."""
+    custom_channel_ids = {entry["channel_id"] for entry in CUSTOM_XMLTV_ENTRIES}
+    custom_programme_channels = {
+        entry["programme_channel"] for entry in CUSTOM_XMLTV_ENTRIES
+    }
+
+    for element in list(root):
+        tag = xmltv_tag_name(element)
+
+        if (
+            tag == "channel"
+            and element.get("id") in custom_channel_ids
+        ) or (
+            tag == "programme"
+            and element.get("channel") in custom_programme_channels
+        ):
+            root.remove(element)
+
+    for entry in CUSTOM_XMLTV_ENTRIES:
+        channel = ET.SubElement(root, "channel", id=entry["channel_id"])
+        ET.SubElement(channel, "display-name").text = entry["channel_name"]
+
+        programme = ET.SubElement(
+            root,
+            "programme",
+            start="20261012000000 +0530",
+            stop="20261013000000 +0530",
+            channel=entry["programme_channel"],
+        )
+        ET.SubElement(programme, "title", lang="en").text = entry["title"]
+        ET.SubElement(programme, "desc", lang="en").text = entry["description"]
+        ET.SubElement(programme, "category", lang="en").text = entry["category"]
+
+
+def merge_epg_guides(refreshed_xml, channel_ids, gz_file=EPG_XML_GZ_FILE):
+    """Merge all source guides and write only the compressed XMLTV output."""
+    base_tree = None
+
+    for source_url in SOURCE_EPG_URLS:
+        source_tree = download_source_epg(source_url)
+        source_root = source_tree.getroot()
+        normalize_xmltv_channel_ids(source_root)
+
+        if base_tree is None:
+            base_tree = source_tree
+            continue
+
+        base_root = base_tree.getroot()
+        for element in source_root:
+            if xmltv_tag_name(element) in {"channel", "programme"}:
+                base_root.append(element)
+
+    if base_tree is None:
+        raise RuntimeError("No source EPG guides were downloaded.")
+
+    base_root = base_tree.getroot()
+    refreshed_root = ET.parse(refreshed_xml).getroot()
+
+    normalize_xmltv_channel_ids(refreshed_root)
+
+    refreshed_ids = {
+        normalize_channel_id(channel_id)
+        for channel_id in channel_ids
+        if channel_id is not None
+    }
+
+    # Replace the downloaded entries for requested channels so programmes do not
+    # remain duplicated or stale after the API data is appended.
+    for element in list(base_root):
+        tag = xmltv_tag_name(element)
+        element_id = (
+            element.get("id")
+            if tag == "channel"
+            else element.get("channel")
+            if tag == "programme"
+            else None
+        )
+
+        if element_id in refreshed_ids:
+            base_root.remove(element)
+
+    for element in refreshed_root:
+        if xmltv_tag_name(element) in {"channel", "programme"}:
+            base_root.append(element)
+
+    append_custom_epg_entries(base_root)
+
+    ET.indent(base_tree, space="  ")
+
+    with tempfile.NamedTemporaryFile(suffix=".xml", delete=False) as temp_file:
+        temp_xml = temp_file.name
+
+    try:
+        base_tree.write(temp_xml, encoding="utf-8", xml_declaration=True)
+
+        with open(temp_xml, "rb") as f_in:
+            with gzip.open(gz_file, "wb") as f_out:
+                shutil.copyfileobj(f_in, f_out)
+    finally:
+        if os.path.exists(temp_xml):
+            os.unlink(temp_xml)
+
+    print(f"Merged API EPG for {len(refreshed_ids)} channels")
+    print(f"Generated GZ:  {gz_file}")
 
 
 # ============================================================
@@ -2201,7 +2395,7 @@ def main():
     # LOAD CHANNELS
     # ========================================================
 
-    channels = load_channels()
+    channels = load_channels(JIOTVPLUS_FILE)
 
 
     if not channels:
@@ -2301,7 +2495,8 @@ def main():
 
     # ========================================================
     # STEP 5
-    # GENERATE XMLTV EPG (epg.xml & epg.xml.gz)
+    # GENERATE THE REFRESHED JIOTVPLUS GUIDE, THEN MERGE IT INTO
+    # THE DOWNLOADED FULL GUIDE.
     # ========================================================
 
     all_channels_data = load_all_channel_data(
@@ -2309,11 +2504,21 @@ def main():
         all_collected_channels
     )
 
-    generate_xmltv(
-        all_channels_data,
-        EPG_XML_FILE,
-        EPG_XML_GZ_FILE
-    )
+    with tempfile.TemporaryDirectory() as temp_dir:
+        refreshed_xml = os.path.join(temp_dir, "jiotvplus.xml")
+        refreshed_gz = os.path.join(temp_dir, "jiotvplus.xml.gz")
+
+        generate_xmltv(
+            all_channels_data,
+            refreshed_xml,
+            refreshed_gz
+        )
+
+        merge_epg_guides(
+            refreshed_xml,
+            [channel.get("channel_id") for channel in channels],
+            EPG_XML_GZ_FILE
+        )
 
 
     # ========================================================
@@ -2332,11 +2537,6 @@ def main():
     print(
         f"Proxy used: "
         f"{WORKING_PROXY}"
-    )
-
-    print(
-        f"Output XML: "
-        f"{EPG_XML_FILE}"
     )
 
     print(

@@ -53,9 +53,7 @@ jobs:
       #
       # EPG API URL is already present inside test.py
       #
-      # test.py will generate:
-      #   epg.xml
-      #   epg.xml.gz
+      # test.py generates only epg.xml.gz.
       #
       # ------------------------------------------------------
 
@@ -65,13 +63,13 @@ jobs:
 
 
       # ------------------------------------------------------
-      # Check generated EPG files
+      # Check generated EPG file
       # ------------------------------------------------------
 
-      - name: Show generated EPG files
+      - name: Show generated EPG file
         run: |
-          echo "Generated EPG files:"
-          ls -lh epg.xml epg.xml.gz
+          echo "Generated EPG file:"
+          ls -lh epg.xml.gz
 
 
       # ------------------------------------------------------
@@ -85,12 +83,13 @@ jobs:
 
 
       # ------------------------------------------------------
-      # Add generated EPG files
+      # Add compressed EPG file and remove the obsolete XML output
       # ------------------------------------------------------
 
-      - name: Add EPG files
+      - name: Stage EPG output
         run: |
-          git add epg.xml epg.xml.gz
+          git add epg.xml.gz
+          git rm --ignore-unmatch epg.xml
 
 
       # ------------------------------------------------------
