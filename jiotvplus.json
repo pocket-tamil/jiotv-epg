@@ -162,6 +162,18 @@
         "logo_url":  "https://jiotv.catchup.cdn.jio.com/dare_images/images/Zee_24_Kalak.png"
     },
     {
+        "channel_name": "Unite8 Sports 1 HD",
+        "channel_id": "1319",
+        "category": "Sports",
+        "logo_url": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_ZEE_CAFE_HD/images/logo_url_HD/logo_url_HD_F6ILcp4Kk_UNITE8-SPORTS-1_HD_264X144.webp"
+   },
+   {
+        "channel_name": "Unite8 Sports 2 HD",
+        "channel_id": "1322",
+        "category": "Sports",
+        "logo_url": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_SYMANDFLIX_HD/images/logo_url_HD/logo_url_HD_qVrE3q5rN_UNITE8-SPORTS-2_HD_264X144.webp"
+    },
+    {
         "channel_name":  "Zee TV",
         "channel_id":  "1351",
         "category":  "Entertainment",
